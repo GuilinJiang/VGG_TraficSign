@@ -1,84 +1,111 @@
 /* styles.css */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
+:root {
+    --primary-color: #4CAF50; /* A green shade for call-to-action elements */
+    --secondary-color: #2C3E50; /* A dark shade for headers and footers */
+    --text-color: #FFFFFF; /* White color for text for better readability */
+    --background-overlay: rgba(44, 62, 80, 0.7); /* Semi-transparent overlay for content */
+    --hover-effect-color: #3498DB; /* A blue shade for hover effects */
+}
+
+body, html {
+    height: 100%;
     margin: 0;
-    padding-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    background: url('night-bangkok-road-light.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-color);
 }
 
 nav {
-    background-color: #333;
-}
-
-.nav-wrapper {
-    padding: 0 20px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 15px 0;
 }
 
 .brand-logo {
-    color: white;
-    font-weight: 500;
-    font-size: 1.5rem;
+    color: var(--text-color); /* This uses the white color defined in :root */
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 70px); /* Adjust height based on actual nav and footer height */
+    text-align: center;
 }
 
-.upload-section, .prediction-section {
-    text-align: center;
-    margin-bottom: 30px;
+.upload-section h1, .prediction-section h1 {
+    font-weight: 500;
+    margin: 10px 0;
 }
 
 .image-upload {
-    border: 2px dashed #333;
-    padding: 20px;
-    background: white;
-    margin-bottom: 20px;
+    border: 2px dashed var(--text-color);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
     cursor: pointer;
-    position: relative;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--background-overlay);
+    border-radius: 10px;
 }
 
 .image-upload p {
-    margin: 0;
-    line-height: 120px;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.image-upload input[type="file"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
 }
 
 .btn-large {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
+    background-color: var(--primary-color);
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin: 20px 0;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-large:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+.btn-large:hover:not(:disabled) {
+    background-color: var(--hover-effect-color);
 }
 
 .prediction-result {
-    color: #333;
-    margin-top: 20px;
-    font-size: 18px;
+    background-color: var(--background-overlay);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
 }
 
 .page-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    background-color: var(--secondary-color);
     text-align: center;
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
     .image-upload p {
-        line-height: 80px;
+        line-height: 1.5;
     }
 }
